@@ -34,7 +34,8 @@ aws ec2 run-instances \
     --security-group-ids $security_group_id \
     --associate-public-ip-address \
     --key-name $key_name
-    --subnet-id=$subnet_id
+    --vpc-id $vpc_id
+    --subnet-id $subnet_id
 instance_id= $(
   aws ec2 describe-instances \
     --filters "Name=instance-type,Values=t2.micro" \

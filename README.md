@@ -11,4 +11,4 @@ Link: https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html
 
 
 **Script 3**
-Link:
+Link: https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html#examples

@@ -34,15 +34,30 @@ aws ec2 run-instances \
     --security-group-ids $security_group_id \
     --associate-public-ip-address \
     --key-name $key_name
-instance_id=
+instance_id= $(
+  aws ec2 describe-instances \
+    --filters "Name=instance-type,Values=t2.micro" \
+    --query "Reservations[*].Instances[*].[InstanceId]" \
+    --output text
+)
 
 # wait for ec2 instance to be running
 aws ec2 wait instance-running --instance-ids $instance_id
 
 # Get the public IP address of the EC2 instance
 # COMPLETE THIS PART
-public_ip=
+public_ip=$(
+  aws ec2 describe-instances \
+    --filters "Name=instance-type,Values=t2.micro" \
+    --query "Reservations[*].Instances[*].[PublicIpAddress]" \
+    --output text
+)
 
 # Write instance data to a file
+instance_data = $(aws ec2 describe-instances \
+    --instance-ids $instance_id)
+
+cat $instance_data > instance_data.txt
+
 # COMPLETE THIS PART
 echo "Public IP: $public_ip" 

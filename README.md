@@ -18,5 +18,5 @@ Then run the import-key script:
 Link: https://docs.aws.amazon.com/cli/latest/reference/s3/mb.html
 
 
-### **Script 3**
+**Script 3**
 Link:
